@@ -66,13 +66,8 @@ export default function Signup() {
         {/* Left panel */}
         <div className="auth-panel auth-panel-left">
           <div className="panel-overlay" />
-          <div className="panel-placeholder">
-            <div className="placeholder-inner">
-              <span className="ph-icon">🚴</span>
-              <p className="ph-label">Push Limits</p>
-              <p className="ph-sub">Add your image here</p>
-            </div>
-          </div>
+          {/* Hero image for left panel - athlete training */}
+          <img src="/src/assets/cyclist-left.jpg" alt="" />
           <div className="panel-stat-overlay">
             <span className="panel-stat-num">4×</span>
             <span className="panel-stat-label">Faster Recovery</span>
@@ -167,13 +162,8 @@ export default function Signup() {
         {/* Right panel */}
         <div className="auth-panel auth-panel-right">
           <div className="panel-overlay" />
-          <div className="panel-placeholder">
-            <div className="placeholder-inner">
-              <span className="ph-icon">🏅</span>
-              <p className="ph-label">Reach Your Goal</p>
-              <p className="ph-sub">Add your image here</p>
-            </div>
-          </div>
+          {/* Hero image for right panel - performance tracking */}
+          <img src="/src/assets/cyclist-right.jpg" alt="" />
           <div className="panel-stat-overlay">
             <span className="panel-stat-num">AI</span>
             <span className="panel-stat-label">Personalized Plans</span>
