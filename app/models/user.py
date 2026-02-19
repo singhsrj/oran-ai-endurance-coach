@@ -16,4 +16,5 @@ class User(Base):
     sport = Column(String, nullable=True)   # e.g. "running", "cycling", "triathlon"
     experience_level = Column(String, nullable=True)  # beginner / intermediate / advanced
     goal = Column(String, nullable=True)    # e.g. "marathon", "weight loss", "base fitness"
+    profile_picture = Column(String, nullable=True)  # URL or base64 encoded image
     created_at = Column(DateTime, default=datetime.utcnow)

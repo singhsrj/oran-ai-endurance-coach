@@ -163,6 +163,23 @@
 .btn-log:hover { opacity: 0.88; }
 .btn-log span { font-size: 18px; font-weight: 300; }
 
+.btn-profile {
+  background: transparent;
+  border: 1px solid var(--border2);
+  color: var(--text-light);
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: all 0.18s;
+  text-align: center;
+}
+.btn-profile:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 .btn-logout-side {
   background: transparent;
   border: 1px solid var(--border2);

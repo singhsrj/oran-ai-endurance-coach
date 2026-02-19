@@ -145,8 +145,17 @@ export default function Dashboard() {
           ))}
         </nav>
         <div className="sidebar-bottom">
-          <button onClick={() => navigate('/log')} className="btn-log">
-            <span>+</span> Log Activity
+          <button onClick={() => navigate('/log-workout')} className="btn-log">
+            <span>+</span> Log Workout
+          </button>
+          <button onClick={() => navigate('/log-sleep')} className="btn-log">
+            <span>+</span> Log Sleep
+          </button>
+          <button onClick={() => navigate('/log-nutrition')} className="btn-log">
+            <span>+</span> Log Nutrition
+          </button>
+          <button onClick={() => navigate('/profile')} className="btn-profile">
+            ⚙️ Profile
           </button>
           <button onClick={handleLogout} className="btn-logout-side">
             ↪ Logout

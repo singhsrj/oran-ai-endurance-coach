@@ -23,6 +23,7 @@ class UserUpdate(BaseModel):
     sport: Optional[str] = None
     experience_level: Optional[str] = None
     goal: Optional[str] = None
+    profile_picture: Optional[str] = None
 
 
 class UserOut(BaseModel):
@@ -35,6 +36,7 @@ class UserOut(BaseModel):
     sport: Optional[str]
     experience_level: Optional[str]
     goal: Optional[str]
+    profile_picture: Optional[str]
     created_at: datetime
 
     class Config:
@@ -44,6 +46,11 @@ class UserOut(BaseModel):
 class LoginRequest(BaseModel):
     email: EmailStr
     password: str
+
+
+class PasswordChange(BaseModel):
+    current_password: str
+    new_password: str
 
 
 class TokenOut(BaseModel):
