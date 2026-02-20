@@ -219,7 +219,59 @@ This historical data enables the AI to:
 
 ---
 
-## 🚀 Quick Start
+## � Project Structure
+
+```
+AI-Powered-Endurance-Coach/
+├── app/                    # Backend application
+│   ├── main.py            # FastAPI app entry point
+│   ├── database.py        # Database connection & session
+│   ├── models/            # SQLAlchemy database models
+│   ├── routes/            # API endpoints & schemas
+│   ├── services/          # Business logic & AI coach
+│   └── alembic/           # Database migrations
+│
+├── frontend/              # React frontend application
+│   ├── src/
+│   │   ├── pages/         # Page components
+│   │   ├── components/    # Reusable components
+│   │   ├── contexts/      # React Context providers
+│   │   ├── api/           # API client & endpoints
+│   │   └── assets/        # Images, icons, etc.
+│   └── public/            # Static files
+│
+├── docs/                  # Documentation
+│   ├── SETUP_GUIDE.md     # Development setup
+│   ├── DEPLOYMENT_GUIDE.md    # Production deployment
+│   ├── DEPLOYMENT_OPTIONS.md  # Deployment comparisons
+│   └── structure.txt      # Detailed file structure
+│
+├── scripts/               # Utility scripts
+│   ├── run_migration.py   # Database migration runner
+│   └── add_workout_notes.py  # Column addition script
+│
+├── tests/                 # Test files & debugging
+│   ├── test_api.py        # API endpoint tests
+│   ├── test_password.py   # Auth tests
+│   └── debug_login.py     # Debugging utilities
+│
+├── migrations/            # SQL migration files
+│
+├── .env                   # Environment variables (not in Git)
+├── .gitignore            # Git ignore rules
+├── requirements.txt      # Python dependencies
+├── docker-compose.yml    # Docker orchestration
+├── Dockerfile            # Backend container
+├── netlify.toml          # Netlify config
+├── render.yaml           # Render config
+└── readme.md             # This file
+```
+
+For detailed setup instructions, see [docs/SETUP_GUIDE.md](docs/SETUP_GUIDE.md).
+
+---
+
+## �🚀 Quick Start
 
 ### Prerequisites
 - Python 3.10+

@@ -6,12 +6,11 @@ import './LogActivity.css';
 export default function LogNutrition() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    meal_type: 'breakfast',
+    date: new Date().toISOString().split('T')[0],
     calories: '',
     protein: '',
     carbs: '',
-    fats: '',
-    notes: ''
+    fats: ''
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
@@ -27,12 +26,11 @@ export default function LogNutrition() {
 
     try {
       const payload = {
-        meal_type: formData.meal_type,
-        calories: formData.calories ? parseFloat(formData.calories) : null,
-        protein: formData.protein ? parseFloat(formData.protein) : null,
-        carbs: formData.carbs ? parseFloat(formData.carbs) : null,
-        fats: formData.fats ? parseFloat(formData.fats) : null,
-        notes: formData.notes || null
+        date: formData.date,
+        calories: parseFloat(formData.calories),
+        protein: parseFloat(formData.protein),
+        carbs: parseFloat(formData.carbs),
+        fats: parseFloat(formData.fats)
       };
 
       await api.post('/log-nutrition', payload);
@@ -40,12 +38,11 @@ export default function LogNutrition() {
       
       // Reset form but keep page open for multiple entries
       setFormData({
-        meal_type: 'snack',
+        date: new Date().toISOString().split('T')[0],
         calories: '',
         protein: '',
         carbs: '',
-        fats: '',
-        notes: ''
+        fats: ''
       });
 
       // Clear message after 3 seconds
@@ -78,31 +75,26 @@ export default function LogNutrition() {
 
         <form onSubmit={handleSubmit} className="activity-form">
           <div className="form-group">
-            <label htmlFor="meal_type">Meal Type *</label>
-            <select
-              id="meal_type"
-              name="meal_type"
-              value={formData.meal_type}
+            <label htmlFor="date">Date *</label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value={formData.date}
               onChange={handleChange}
               required
-            >
-              <option value="breakfast">Breakfast</option>
-              <option value="lunch">Lunch</option>
-              <option value="dinner">Dinner</option>
-              <option value="snack">Snack</option>
-              <option value="pre_workout">Pre-Workout</option>
-              <option value="post_workout">Post-Workout</option>
-            </select>
+            />
           </div>
 
           <div className="form-group">
-            <label htmlFor="calories">Calories</label>
+            <label htmlFor="calories">Calories * *</label>
             <input
               type="number"
               id="calories"
               name="calories"
               value={formData.calories}
               onChange={handleChange}
+              required
               min="0"
               step="1"
               placeholder="500"
@@ -111,13 +103,14 @@ export default function LogNutrition() {
 
           <div className="form-row">
             <div className="form-group">
-              <label htmlFor="protein">Protein (g)</label>
+              <label htmlFor="protein">Protein (g) *</label>
               <input
                 type="number"
                 id="protein"
                 name="protein"
                 value={formData.protein}
                 onChange={handleChange}
+                required
                 min="0"
                 step="0.1"
                 placeholder="30"
@@ -125,13 +118,14 @@ export default function LogNutrition() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="carbs">Carbs (g)</label>
+              <label htmlFor="carbs">Carbs (g) *</label>
               <input
                 type="number"
                 id="carbs"
                 name="carbs"
                 value={formData.carbs}
                 onChange={handleChange}
+                required
                 min="0"
                 step="0.1"
                 placeholder="50"
@@ -139,30 +133,19 @@ export default function LogNutrition() {
             </div>
 
             <div className="form-group">
-              <label htmlFor="fats">Fats (g)</label>
+              <label htmlFor="fats">Fats (g) *</label>
               <input
                 type="number"
                 id="fats"
                 name="fats"
                 value={formData.fats}
                 onChange={handleChange}
+                required
                 min="0"
                 step="0.1"
                 placeholder="15"
               />
             </div>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="notes">What did you eat?</label>
-            <textarea
-              id="notes"
-              name="notes"
-              value={formData.notes}
-              onChange={handleChange}
-              rows="3"
-              placeholder="Chicken breast, rice, vegetables..."
-            />
           </div>
 
           <div className="form-actions">

@@ -68,6 +68,7 @@ class WorkoutCreate(BaseModel):
     duration: float  # minutes
     avg_hr: Optional[int] = None  # bpm
     workout_type: str  # easy / tempo / interval / long / race
+    notes: Optional[str] = None
 
 
 class WorkoutOut(BaseModel):
@@ -79,6 +80,7 @@ class WorkoutOut(BaseModel):
     avg_hr: Optional[int]
     workout_type: str
     training_load_score: Optional[float]
+    notes: Optional[str]
     created_at: datetime
 
     class Config:

@@ -13,5 +13,6 @@ class Workout(Base):
     duration = Column(Float, nullable=False)      # minutes
     avg_hr = Column(Integer, nullable=True)       # bpm
     workout_type = Column(String, nullable=False) # easy / tempo / interval / long / race
+    notes = Column(String, nullable=True)         # optional workout notes
     training_load_score = Column(Float, nullable=True)  # computed on insert
     created_at = Column(DateTime, default=datetime.utcnow)

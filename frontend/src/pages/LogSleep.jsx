@@ -6,9 +6,9 @@ import './LogActivity.css';
 export default function LogSleep() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
+    date: new Date().toISOString().split('T')[0],
     hours: '',
-    quality: '7',
-    notes: ''
+    quality_score: '7'
   });
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ type: '', text: '' });
@@ -24,9 +24,9 @@ export default function LogSleep() {
 
     try {
       const payload = {
+        date: formData.date,
         hours: parseFloat(formData.hours),
-        quality: parseInt(formData.quality),
-        notes: formData.notes || null
+        quality_score: parseInt(formData.quality_score)
       };
 
       await api.post('/log-sleep', payload);
@@ -34,9 +34,9 @@ export default function LogSleep() {
       
       // Reset form
       setFormData({
+        date: new Date().toISOString().split('T')[0],
         hours: '',
-        quality: '7',
-        notes: ''
+        quality_score: '7'
       });
 
       // Redirect after 2 seconds
@@ -69,6 +69,18 @@ export default function LogSleep() {
 
         <form onSubmit={handleSubmit} className="activity-form">
           <div className="form-group">
+            <label htmlFor="date">Date *</label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
             <label htmlFor="hours">Hours of Sleep *</label>
             <input
               type="number"
@@ -86,13 +98,13 @@ export default function LogSleep() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="quality">Sleep Quality (1-10) *</label>
+            <label htmlFor="quality_score">Sleep Quality (1-10) *</label>
             <div className="quality-slider">
               <input
                 type="range"
-                id="quality"
-                name="quality"
-                value={formData.quality}
+                id="quality_score"
+                name="quality_score"
+                value={formData.quality_score}
                 onChange={handleChange}
                 min="1"
                 max="10"
@@ -100,22 +112,10 @@ export default function LogSleep() {
               />
               <div className="quality-labels">
                 <span>Poor</span>
-                <span className="quality-value">{formData.quality}</span>
+                <span className="quality-value">{formData.quality_score}</span>
                 <span>Excellent</span>
               </div>
             </div>
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="notes">Notes</label>
-            <textarea
-              id="notes"
-              name="notes"
-              value={formData.notes}
-              onChange={handleChange}
-              rows="3"
-              placeholder="Any disturbances? Dreams? How do you feel this morning?"
-            />
           </div>
 
           <div className="form-actions">

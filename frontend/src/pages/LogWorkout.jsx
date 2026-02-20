@@ -6,6 +6,7 @@ import './LogActivity.css';
 export default function LogWorkout() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
+    date: new Date().toISOString().split('T')[0],
     workout_type: 'easy',
     duration: '',
     distance: '',
@@ -26,6 +27,7 @@ export default function LogWorkout() {
 
     try {
       const payload = {
+        date: formData.date,
         workout_type: formData.workout_type,
         duration: parseFloat(formData.duration),
         distance: formData.distance ? parseFloat(formData.distance) : null,
@@ -38,6 +40,7 @@ export default function LogWorkout() {
       
       // Reset form
       setFormData({
+        date: new Date().toISOString().split('T')[0],
         workout_type: 'easy',
         duration: '',
         distance: '',
@@ -74,6 +77,18 @@ export default function LogWorkout() {
         )}
 
         <form onSubmit={handleSubmit} className="activity-form">
+          <div className="form-group">
+            <label htmlFor="date">Date *</label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
           <div className="form-group">
             <label htmlFor="workout_type">Workout Type *</label>
             <select

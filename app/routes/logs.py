@@ -78,6 +78,7 @@ def log_workout(
         duration=workout_data.duration,
         avg_hr=workout_data.avg_hr,
         workout_type=workout_data.workout_type,
+        notes=workout_data.notes,
         training_load_score=training_load
     )
     
