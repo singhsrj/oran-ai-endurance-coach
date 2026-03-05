@@ -303,8 +303,7 @@ pip install -r requirements.txt
 python -c "from app.models import *; from app.database import Base, engine; Base.metadata.create_all(bind=engine)"
 
 # Start the API server
-uvicorn app.main:app --reload
-```
+uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload```
 
 Backend runs at: **http://localhost:8000**
 
@@ -316,7 +315,7 @@ cd frontend
 
 # Install dependencies
 npm install
-
+npm run build
 # Start development server
 npm run dev
 ```
