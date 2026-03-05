@@ -2,15 +2,19 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.database import Base, engine
+from app.routes.config import settings
 #supa base pass - Rss6Y5CbzC5EOHRe
 # Import models so Alembic / create_all can detect them
 from app.models import user, workout, sleep_log, nutrition_log, recommendation  # noqa: F401
 
 app = FastAPI(title="Endurance Sports Coach API", version="1.0.0")
 
+# Parse comma-separated origins from env/config.
+cors_origins = [origin.strip() for origin in settings.CORS_ORIGINS.split(",") if origin.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # tighten in production
+    allow_origins=cors_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
