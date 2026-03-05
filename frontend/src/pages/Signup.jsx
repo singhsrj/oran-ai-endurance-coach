@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import logoImg from '../assets/logo.png';
+import cyclistLeftImg from '../assets/cyclist-left.jpg';
+import cyclistRightImg from '../assets/cyclist-right.jpg';
 import './Auth.css';
 
 export default function Signup() {
@@ -50,7 +53,7 @@ export default function Signup() {
       {/* ── Dark Navbar ── */}
       <nav className="auth-nav">
         <div className="auth-nav-logo">
-          <img src="/src/assets/logo.png" alt="Endure" className="nav-logo-img" />
+          <img src={logoImg} alt="Endure" className="nav-logo-img" />
         </div>
         <div className="auth-nav-links">
           <span>Features</span>
@@ -67,7 +70,7 @@ export default function Signup() {
         <div className="auth-panel auth-panel-left">
           <div className="panel-overlay" />
           {/* Hero image for left panel - athlete training */}
-          <img src="/src/assets/cyclist-left.jpg" alt="" />
+          <img src={cyclistLeftImg} alt="" />
           <div className="panel-stat-overlay">
             <span className="panel-stat-num">4×</span>
             <span className="panel-stat-label">Faster Recovery</span>
@@ -77,7 +80,7 @@ export default function Signup() {
         {/* Center form — signup has more fields so it scrolls */}
         <div className="auth-center auth-center-signup">
           <div className="auth-center-inner">
-            <img src="/src/assets/logo.png" alt="Endure" className="center-logo" />
+            <img src={logoImg} alt="Endure" className="center-logo" />
             <h1 className="center-headline">Join Endure</h1>
             <p className="center-sub">Your AI coach is ready. Let's build your profile.</p>
 
@@ -163,7 +166,7 @@ export default function Signup() {
         <div className="auth-panel auth-panel-right">
           <div className="panel-overlay" />
           {/* Hero image for right panel - performance tracking */}
-          <img src="/src/assets/cyclist-right.jpg" alt="" />
+          <img src={cyclistRightImg} alt="" />
           <div className="panel-stat-overlay">
             <span className="panel-stat-num">AI</span>
             <span className="panel-stat-label">Personalized Plans</span>
@@ -175,7 +178,7 @@ export default function Signup() {
       <footer className="auth-footer">
         <div className="footer-inner">
           <div className="footer-col">
-            <img src="/src/assets/logo.png" alt="Endure" className="footer-logo" />
+            <img src={logoImg} alt="Endure" className="footer-logo" />
             <p className="footer-tagline">Intelligent training for serious athletes.</p>
           </div>
           <div className="footer-col">

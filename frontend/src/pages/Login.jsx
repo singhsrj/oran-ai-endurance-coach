@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import logoImg from '../assets/logo.png';
+import maxJolliffeImg from '../assets/max-jolliffe.png';
+import truettHanesImg from '../assets/TruettHanes3.png';
 import './Auth.css';
 
 export default function Login() {
@@ -32,7 +35,7 @@ export default function Login() {
       {/* ── Dark Navbar ── */}
       <nav className="auth-nav">
         <div className="auth-nav-logo">
-          <img src="/src/assets/logo.png" alt="Endure" className="nav-logo-img" />
+          <img src={logoImg} alt="Endure" className="nav-logo-img" />
         </div>
         <div className="auth-nav-links">
           <span>Features</span>
@@ -48,7 +51,7 @@ export default function Login() {
         {/* Left image panel */}
         <div className="auth-panel auth-panel-left">
           <div className="panel-overlay" />
-          <img src="/src/assets/max-jolliffe.png" alt="" />
+          <img src={maxJolliffeImg} alt="" />
           <div className="panel-stat-overlay">
             <span className="panel-stat-num">10K+</span>
             <span className="panel-stat-label">Athletes Tracked</span>
@@ -58,7 +61,7 @@ export default function Login() {
         {/* Center form (light) */}
         <div className="auth-center">
           <div className="auth-center-inner">
-            <img src="/src/assets/logo.png" alt="Endure" className="center-logo" />
+            <img src={logoImg} alt="Endure" className="center-logo" />
             <h1 className="center-headline">AI-Powered<br/>Endurance Coach</h1>
             <p className="center-sub">Train with precision. Recover with intent. Perform at your peak.</p>
 
@@ -96,7 +99,7 @@ export default function Login() {
         {/* Right image panel */}
         <div className="auth-panel auth-panel-right">
           <div className="panel-overlay" />
-          <img src="/src/assets/TruettHanes3.png" alt="" />
+          <img src={truettHanesImg} alt="" />
           <div className="panel-stat-overlay">
             <span className="panel-stat-num">95%</span>
             <span className="panel-stat-label">Recovery Accuracy</span>
@@ -109,7 +112,7 @@ export default function Login() {
         <div className="footer-inner">
 
           <div className="footer-col">
-            <img src="/src/assets/logo.png" alt="Endure" className="footer-logo" />
+            <img src={logoImg} alt="Endure" className="footer-logo" />
             <p className="footer-tagline">Intelligent training for serious athletes.</p>
           </div>
 
