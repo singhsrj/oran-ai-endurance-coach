@@ -119,8 +119,8 @@ AI-Powered Endurance Coach/
 
 ### Backend (.env in root)
 ```env
-DATABASE_URL=postgresql://postgres.bkxshuphpvxktqfqskkp:998899%40Qsx00@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres
-FIREWORKS_API_KEY=fw_7yMeyohPRpL4trnPPoCwS2
+DATABASE_URL=postgresql://<db_user>:<db_password>@<db_host>:<db_port>/<db_name>?sslmode=require
+FIREWORKS_API_KEY=your-fireworks-api-key
 SECRET_KEY=your-secret-key-here
 ```
 
