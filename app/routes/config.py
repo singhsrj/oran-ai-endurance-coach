@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     FIREWORKS_BASE_URL: str = "https://api.fireworks.ai/inference/v1"
     FIREWORKS_MODEL: str = "accounts/fireworks/models/gpt-oss-120b"
     # Comma-separated list, e.g. "http://localhost:5173,https://your-site.netlify.app"
-    CORS_ORIGINS: str = "http://localhost:5173"
+    CORS_ORIGINS: str = "http://localhost:5173,https://oran-ai.netlify.app"
 
     class Config:
         env_file = ".env"

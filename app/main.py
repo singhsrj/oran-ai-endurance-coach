@@ -11,8 +11,12 @@ from app.models import user, workout, sleep_log, nutrition_log, recommendation  
 app = FastAPI(title="Endurance Sports Coach API", version="1.0.0")
 logger = logging.getLogger(__name__)
 
-# Parse comma-separated origins from env/config.
-cors_origins = [origin.strip() for origin in settings.CORS_ORIGINS.split(",") if origin.strip()]
+# Parse comma-separated origins from env/config and normalize trailing slashes.
+cors_origins = [
+    origin.strip().rstrip("/")
+    for origin in settings.CORS_ORIGINS.split(",")
+    if origin.strip()
+]
 
 app.add_middleware(
     CORSMiddleware,
