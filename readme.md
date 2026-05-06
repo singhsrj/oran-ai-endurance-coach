@@ -1,6 +1,7 @@
 # Oran AI
 
 **AI-Powered Endurance Training Coach with Holistic Athlete Management**
+Live at - **https://oran-ai.netlify.app/**
 
 ---
 
